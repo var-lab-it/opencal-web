@@ -48,8 +48,8 @@
 
 <script>
 import AppHeader from "./components/dashboard/AppHeader.vue";
-import {getCurrentUser} from "./composables/CurrentUser.js";
-import {isAuthenticated} from "./services/auth.js";
+import {getCurrentUser} from "./composables/CurrentUser.ts";
+import {isAuthenticated} from "./services/auth.ts";
 
 export default {
   name: 'App',
