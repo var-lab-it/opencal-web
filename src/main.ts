@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import './style/app.scss'
-import router from './router/index';
+import router from './router';
 import 'bootstrap'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
