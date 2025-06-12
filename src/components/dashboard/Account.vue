@@ -4,19 +4,19 @@
   </h2>
 
   <div
-      v-if="loading"
-      class="spinner-border text-dark"
-      role="status"
+    v-if="loading"
+    class="spinner-border text-dark"
+    role="status"
   ></div>
 
   <div
-      v-else
+    v-else
   >
     <div class="row">
       <div class="col-md-6 col-12 mb-3">
         <div
-            id="account-name"
-            class="mb-2"
+          id="account-name"
+          class="mb-2"
         >
           <strong>
             {{ $t('account.name') }}:
@@ -25,8 +25,8 @@
         </div>
 
         <div
-            id="account-email"
-            class="mb-2"
+          id="account-email"
+          class="mb-2"
         >
           <strong>
             {{ $t('account.email') }}:
@@ -35,8 +35,8 @@
         </div>
 
         <div
-            id="account-password"
-            class="mb-2"
+          id="account-password"
+          class="mb-2"
         >
           <strong>
             {{ $t('account.password') }}:
@@ -45,15 +45,18 @@
         </div>
 
         <button
-            id="edit-button"
-            class="btn btn-outline-secondary btn-sm mt-3"
-            @click="openModal"
+          id="edit-button"
+          class="btn btn-outline-secondary btn-sm mt-3"
+          @click="openModal"
         >
-          <font-awesome-icon icon="pencil"/>
+          <font-awesome-icon icon="pencil" />
           {{ $t('account.buttons.edit') }}
         </button>
 
-        <router-link to="/dashboard/account/caldav" class="btn btn-outline-secondary btn-sm mt-3 ms-1">
+        <router-link
+          to="/dashboard/account/caldav"
+          class="btn btn-outline-secondary btn-sm mt-3 ms-1"
+        >
           <font-awesome-icon icon="calendar" />
           {{ $t('account.caldav_accounts') }}
         </router-link>
@@ -62,26 +65,26 @@
   </div>
 
   <div
-      id="editModal"
-      ref="modalRef"
-      class="modal fade"
-      tabindex="-1"
-      aria-labelledby="editModalLabel"
-      aria-hidden="true"
+    id="editModal"
+    ref="modalRef"
+    class="modal fade"
+    tabindex="-1"
+    aria-labelledby="editModalLabel"
+    aria-hidden="true"
   >
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h5
-              id="editModalLabel"
-              class="modal-title"
+            id="editModalLabel"
+            class="modal-title"
           >
             {{ $t('account.form.title') }}
           </h5>
           <button
-              type="button"
-              class="btn-close"
-              @click="closeModal"
+            type="button"
+            class="btn-close"
+            @click="closeModal"
           ></button>
         </div>
         <div class="modal-body">
@@ -91,9 +94,9 @@
                 {{ $t('account.form.given_name') }}
               </label>
               <input
-                  v-model="form.givenName"
-                  type="text"
-                  class="form-control given-name"
+                v-model="form.givenName"
+                type="text"
+                class="form-control given-name"
               />
             </div>
             <div class="mb-3">
@@ -101,9 +104,9 @@
                 {{ $t('account.form.family_name') }}
               </label>
               <input
-                  v-model="form.familyName"
-                  type="text"
-                  class="form-control family-name"
+                v-model="form.familyName"
+                type="text"
+                class="form-control family-name"
               />
             </div>
             <div class="mb-3 border-bottom pb-3">
@@ -111,22 +114,22 @@
                 {{ $t('account.form.email') }}
               </label>
               <input
-                  v-model="form.email"
-                  type="email"
-                  class="form-control email"
+                v-model="form.email"
+                type="email"
+                class="form-control email"
               />
             </div>
             <button
-                id="submit-btn"
-                type="submit"
-                class="btn btn-primary"
+              id="submit-btn"
+              type="submit"
+              class="btn btn-primary"
             >
               {{ $t('account.form.buttons.save') }}
             </button>
             <button
-                type="button"
-                class="btn btn-outline-danger float-end"
-                @click="closeModal"
+              type="button"
+              class="btn btn-outline-danger float-end"
+              @click="closeModal"
             >
               {{ $t('account.form.buttons.cancel') }}
             </button>

@@ -3,7 +3,6 @@ import Login from '../components/dashboard/Login.vue';
 import {isAuthenticated} from '../services/auth';
 import BookingIndex from "../components/booking/BookingIndex.vue";
 import CancelBooking from "../components/booking/CancelBooking.vue";
-import Dashboard from "../components/dashboard/Dashboard.vue";
 import Account from "../components/dashboard/Account.vue";
 import Start from "../components/Start.vue";
 import PasswordRequest from "../components/PasswordRequest.vue";

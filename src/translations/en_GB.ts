@@ -61,7 +61,10 @@ export default {
         },
         "caldav_accounts": "CalDAV Accounts",
         "caldav_auths": {
-            "headline": "CalDAV Accounts"
+            "headline": "CalDAV Accounts",
+            "buttons": {
+                "edit": "edit",
+            },
         }
     },
     "change": "change",
