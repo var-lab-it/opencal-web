@@ -97,4 +97,20 @@ export default {
             }
         }
     },
+    "dashboard": {
+        "appointments": {
+            "index": {
+                "headline": "Appointments"
+            },
+            "details": {
+                "headline": "Appointment details",
+                "fields": {
+                    "event_type": "Event-Type",
+                    "date_time": "Date & Time",
+                    "participant_name": "Teilnehmer",
+                    "participant_email": "Email address",
+                }
+            }
+        }
+    }
 }

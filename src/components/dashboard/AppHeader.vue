@@ -33,15 +33,6 @@
               {{ $t('header.nav.dashboard') }}
             </router-link>
           </li>
-          <li class="nav-item">
-            <router-link
-              class="nav-link"
-              to="/dashboard/appointments"
-              active-class="active"
-            >
-              {{ $t('header.nav.appointments') }}
-            </router-link>
-          </li>
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"

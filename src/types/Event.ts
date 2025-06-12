@@ -12,3 +12,5 @@ export type Event = {
     cancellationHash: string,
     cancelledByAttendee: boolean,
 }
+
+export type Events = Array<Event>

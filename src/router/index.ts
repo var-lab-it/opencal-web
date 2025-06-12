@@ -8,6 +8,7 @@ import Account from "../components/dashboard/Account.vue";
 import Start from "../components/Start.vue";
 import PasswordRequest from "../components/PasswordRequest.vue";
 import PasswordResest from "../components/PasswordResest.vue";
+import Appointments from "../components/dashboard/Appointments.vue";
 
 const routes = [
     {
@@ -43,7 +44,7 @@ const routes = [
     {
         name: 'dashboard',
         path: '/dashboard',
-        component: Dashboard,
+        component: Appointments,
         meta: {requiresAuth: true}
     },
     {
