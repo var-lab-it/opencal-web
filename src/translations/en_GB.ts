@@ -107,7 +107,7 @@ export default {
                 "fields": {
                     "event_type": "Event-Type",
                     "date_time": "Date & Time",
-                    "participant_name": "Teilnehmer",
+                    "participant_name": "Participant",
                     "participant_email": "Email address",
                 }
             }
