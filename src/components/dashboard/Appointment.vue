@@ -112,16 +112,6 @@
               {{ appointment.participantEmail }}
             </div>
           </div>
-          <div class="row mb-2">
-            <div class="col-md-4 col-12">
-              <strong>
-                {{ $t('dashboard.appointments.details.fields.participant_email') }}:
-              </strong>
-            </div>
-            <div class="col">
-              {{ appointment.participantEmail }}
-            </div>
-          </div>
         </div>
       </div>
     </div>
