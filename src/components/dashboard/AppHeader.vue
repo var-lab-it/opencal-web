@@ -48,7 +48,7 @@
               <li>
                 <router-link
                   id="my-account-link"
-                  to="/account"
+                  to="/dashboard/account"
                   class="nav-link"
                 >
                   <font-awesome-icon icon="user" />
