@@ -58,6 +58,10 @@ export default {
                 "cancel": "Cancel",
                 "save": "Save"
             }
+        },
+        "caldav_accounts": "CalDAV Accounts",
+        "caldav_auths": {
+            "headline": "CalDAV Accounts"
         }
     },
     "change": "change",
