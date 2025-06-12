@@ -1,7 +1,6 @@
-# OpenCal - Open Source Appointment Scheduling Platform
+# OpenCal Web Frontend - Open Source Appointment Scheduling Platform
 
-![Checks](https://github.com/var-lab-it/opencal/actions/workflows/workflows.yml/badge.svg)
-[![codecov backend](https://codecov.io/gh/var-lab-it/opencal/graph/badge.svg?token=P6QF1EYWLJ)](https://codecov.io/gh/var-lab-it/opencal)
+![Checks](https://github.com/var-lab-it/opencal-web/actions/workflows/workflows.yml/badge.svg)
 
 **OpenCal** is a modern, open-source web application that simplifies and streamlines the process of scheduling
 appointments.
@@ -10,17 +9,13 @@ team or employed by a company.
 Due to its open license, OpenCal can be used, customized, and self-hosted free of charge. It is also suitable for
 professional and commercial use in businesses.
 
-The backend is written in Symfony and the API Platform, and it provides a RESTful API that the Vue front end uses. The
-API can also be integrated into other software applications.
+This is the web-frontend repository for OpenCal, created with vue.js+vite. It can be used by everyone who don't want to
+create his own frontend.
 
 ![screenshot-opencal.png](screenshot-opencal.png)
 
-## Documentation
-
-- [Configuration](docs/config.md)
-- [Getting started (for developers)](docs/dev_setup.md)
-- [How to contribute](CONTRIBUTING.md)
-- [Admin documentation](docs/admin/index.md)
+- [OpenCal Backend-API](https://github.com/var-lab-it/opencal)
+- [Local development environment](https://github.com/var-lab-it/opencal-dev)
 
 OpenCal is licensed under the [GNU AGPLv3 License](LICENSE).
 
