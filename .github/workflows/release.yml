@@ -97,7 +97,7 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build --build-arg OPENCAL_FRONTEND_VERSION=${{ env.VERSION }} -t opencal-web:${{ env.VERSION }} .
+          docker build --build-arg OPENCAL_FRONTEND_VERSION=${{ env.VERSION }} -t opencal-web:${{ env.VERSION }} --target production .
 
           docker tag opencal-web:${{ env.VERSION }} ghcr.io/var-lab-it/opencal-web:${{ env.MAJOR_MINOR_VERSION }}
 
