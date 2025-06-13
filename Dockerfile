@@ -1,55 +1,31 @@
-# -------------------------
-# BASE DEPENDENCIES STAGE
-# -------------------------
-FROM node:20-slim AS deps
+# Stage 1: Development
+FROM node:24-slim as development
 
-ARG OPENCAL_FRONTEND_VERSION=dev
-ENV OPENCAL_FRONTEND_VERSION=${OPENCAL_FRONTEND_VERSION}
+WORKDIR /usr/src/app
 
-RUN apt-get update -y \
-    && apt-get upgrade -y \
-    && apt-get install --no-install-recommends -y build-essential python3 ca-certificates wget bash \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+COPY package*.json ./
+RUN npm install
 
-WORKDIR /app
-
-COPY package.json package-lock.json* ./
-
-RUN npm ci
-
-# -------------------------
-# DEVELOPMENT STAGE
-# -------------------------
-FROM deps AS development
-
-WORKDIR /app
-
-# Alle Quellen kopieren (achte auf .dockerignore)
 COPY . .
 
-EXPOSE 5173
+EXPOSE 8080
 
-CMD ["npm", "run", "dev", "--", "--host"]
+CMD ["npm", "run", "serve"]
 
-# -------------------------
-# BUILD STAGE
-# -------------------------
-FROM development AS builder
+# Stage 2: Production
+FROM node:24-slim as production
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+RUN npm install
+
+COPY --from=development /usr/src/app .
 
 RUN npm run build
 
-# -------------------------
-# PRODUCTION STAGE
-# -------------------------
-FROM nginx:stable-alpine AS production
-
-WORKDIR /app/dist
-
-RUN rm -rf ./*
-
-COPY --from=builder /app/dist ./
+RUN npm install -g http-server
 
 EXPOSE 80
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["http-server", "dist"]
