@@ -26,3 +26,13 @@ export async function createCalDavAuth(baseUri: string, username: string, passwo
         throw error;
     }
 }
+
+export async function deleteCalDavAuth(id: number): Promise<null> {
+    try {
+        const response = await apiClient.delete(`/cal_dav_auths/${id}`);
+        return response.data;
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+}

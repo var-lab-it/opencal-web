@@ -1,4 +1,10 @@
 export default {
+    "confirm_modal": {
+        "buttons": {
+            "cancel": "Abbrechen",
+            "confirm": "Bestätigen",
+        }
+    },
     "start": {
         "headline": "Willkommen bei OpenCal",
         "message": "Bitte verwenden Sie den persönlichen Link eines Benutzers, um Termine zu buchen."
