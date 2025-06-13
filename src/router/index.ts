@@ -8,7 +8,7 @@ import Start from "../components/Start.vue";
 import PasswordRequest from "../components/PasswordRequest.vue";
 import PasswordResest from "../components/PasswordResest.vue";
 import Appointments from "../components/dashboard/Appointments.vue";
-import CalDavAuths from "../components/dashboard/CalDavAuths.vue";
+import CalDavAuthsList from "../components/dashboard/CalDavAuth/CalDavAuthsList.vue";
 
 const routes = [
     {
@@ -56,7 +56,7 @@ const routes = [
     {
         name: 'caldav_auths',
         path: '/dashboard/account/caldav',
-        component: CalDavAuths,
+        component: CalDavAuthsList,
         meta: {requiresAuth: true}
     },
 ];
