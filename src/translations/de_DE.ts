@@ -84,7 +84,13 @@ export default {
                     "base_uri": "URL zum CalDAV-Kalender",
                     "username": "Username",
                     "password": "Passwort",
-                }
+                },
+                "success_message": "Der Datensatz wurde gespeichert.",
+            },
+            "delete": {
+                "confirm_headline": "CalDAV-Authentifizierung löschen??",
+                "confirm_message": "Sind Sie sicher, dass Sie diesen Eintrag löschen möchten? Alle synchronisierten Daten werden entfernt.",
+                "success_message": "Der Datensatz wurde gelöscht."
             }
         }
     },

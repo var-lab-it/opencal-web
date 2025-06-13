@@ -15,7 +15,10 @@
           *********
         </div>
         <div class="flex-column ms-2">
-          <button class="btn btn-outline-success btn-sm">
+          <button
+            class="btn btn-outline-success btn-sm"
+            @click="calDavAuthModalRef?.openModal(auth)"
+          >
             <font-awesome-icon icon="pencil" />
             {{ $t('account.caldav_auths.buttons.edit') }}
           </button>
@@ -46,6 +49,11 @@
       </div>
     </div>
   </div>
+
+  <CalDavAuthModal
+    ref="calDavAuthModalRef"
+    @refreshed="handleItemRefreshed()"
+  />
 </template>
 
 <script setup lang="ts">
@@ -56,6 +64,7 @@ import {ref} from "vue";
 import {deleteCalDavAuth} from "../../../services/caldav";
 import {toast} from "vue3-toastify";
 import {useI18n} from "vue-i18n";
+import CalDavAuthModal from "./CalDavAuthModal.vue";
 
 const {t} = useI18n()
 
@@ -63,8 +72,9 @@ const props = defineProps({
   auth: {type: Object as () => CalDavAuth, required: true},
 });
 
-const emit = defineEmits(['itemDeleted']);
+const emit = defineEmits(['itemDeleted', 'itemRefreshed']);
 
+const calDavAuthModalRef = ref<InstanceType<typeof CalDavAuthModal> | null>(null)
 const confirmModal = ref<InstanceType<typeof ConfirmModal> | null>(null);
 const loadingDelete = ref(false);
 
@@ -82,5 +92,9 @@ function deleteItem() {
   } catch (error) {
     console.error("Delete appointment failed:", error);
   }
+}
+
+function handleItemRefreshed() {
+  emit('itemRefreshed')
 }
 </script>
