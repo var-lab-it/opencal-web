@@ -3,6 +3,9 @@
 # -------------------------
 FROM node:20-slim AS deps
 
+ARG OPENCAL_FRONTEND_VERSION=dev
+ENV OPENCAL_FRONTEND_VERSION=${OPENCAL_FRONTEND_VERSION}
+
 RUN apt-get update -y \
     && apt-get upgrade -y \
     && apt-get install --no-install-recommends -y build-essential python3 ca-certificates wget bash \
