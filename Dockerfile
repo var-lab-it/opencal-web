@@ -44,7 +44,7 @@ RUN npm run build
 # -------------------------
 FROM nginx:stable-alpine AS production
 
-WORKDIR /usr/share/nginx/html
+WORKDIR /app/dist
 
 RUN rm -rf ./*
 
