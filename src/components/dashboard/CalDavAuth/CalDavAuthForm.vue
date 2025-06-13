@@ -64,7 +64,7 @@
 
 <script setup lang="ts">
 import {ref} from "vue";
-import {createCalDavAuth} from "../../../services/caldav";
+import {createCalDavAuth, updateCalDavAuth} from "../../../services/caldav";
 import {toast} from "vue3-toastify";
 import {useI18n} from "vue-i18n";
 
@@ -81,32 +81,47 @@ const emit = defineEmits(['submitted']);
 
 const formRef = ref<HTMLFormElement | null>(null);
 const loadSubmit = ref(false);
-const baseUri = ref<string>(props.baseUri ?? '');
-const username = ref<string>(props.username ?? '');
-const password = ref<string>(props.password ?? '');
+const baseUri = ref<string>(props.baseUri);
+const username = ref<string>(props.username);
+const password = ref<string>(props.password);
 
 async function handleSubmit() {
   loadSubmit.value = true;
 
   try {
-    createCalDavAuth(
-        baseUri.value,
-        username.value,
-        password.value
-    ).finally(() => {
-      loadSubmit.value = false;
-      emit('submitted');
-
-      baseUri.value = '';
-      username.value = '';
-      password.value = '';
-
-      toast(t('account.caldav_auths.form.success_message'), {autoClose: 2000, type: 'success'})
-    });
+    if (props.id === null) {
+      createCalDavAuth(
+          baseUri.value,
+          username.value,
+          password.value
+      ).finally(() => {
+        handleSubmitSucceeded();
+      });
+    } else if (props.id > 0) {
+      updateCalDavAuth(
+          props.id,
+          baseUri.value,
+          username.value,
+          password.value
+      ).finally(() => {
+        handleSubmitSucceeded();
+      });
+    }
   } catch (err) {
     console.error("Submit failed:", err);
   } finally {
     loadSubmit.value = false;
   }
+}
+
+function handleSubmitSucceeded() {
+  loadSubmit.value = false;
+  emit('submitted');
+
+  baseUri.value = '';
+  username.value = '';
+  password.value = '';
+
+  toast(t('account.caldav_auths.form.success_message'), {autoClose: 2000, type: 'success'})
 }
 </script>

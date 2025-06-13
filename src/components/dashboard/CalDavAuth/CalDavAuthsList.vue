@@ -9,13 +9,13 @@
     </router-link>
     <button
       class="btn btn-outline-success"
-      @click="createModalRef?.openModal()"
+      @click="calDavAuthModalRef?.openModal(null)"
     >
       <font-awesome-icon icon="plus-circle" />
       {{ $t('account.caldav_auths.buttons.add') }}
     </button>
     <CalDavAuthModal
-      ref="createModalRef"
+      ref="calDavAuthModalRef"
       @refreshed="loadData(true)"
     />
   </div>
@@ -49,6 +49,7 @@
       <CalDavAuthItem
         :auth="auth"
         @item-deleted="loadData(false)"
+        @item-refreshed="loadData(false)"
       />
     </div>
   </div>
@@ -64,7 +65,7 @@ import CalDavAuthItem from "./CalDavAuthItem.vue";
 
 const loading = ref(true);
 const auths = ref<CalDavAuths>([]);
-const createModalRef = ref<InstanceType<typeof CalDavAuthModal> | null>(null)
+const calDavAuthModalRef = ref<InstanceType<typeof CalDavAuthModal> | null>(null)
 
 onMounted(async () => {
   loadData(true);
