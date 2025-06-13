@@ -38,7 +38,7 @@
       <input
         id="password"
         v-model="password"
-        type="text"
+        type="password"
         class="form-control"
         required
         data-testid="password-input"
@@ -65,6 +65,10 @@
 <script setup lang="ts">
 import {ref} from "vue";
 import {createCalDavAuth} from "../../../services/caldav";
+import {toast} from "vue3-toastify";
+import {useI18n} from "vue-i18n";
+
+const {t} = useI18n()
 
 const props = defineProps({
   id: {type: Number, required: false, default: null},
@@ -96,6 +100,8 @@ async function handleSubmit() {
       baseUri.value = '';
       username.value = '';
       password.value = '';
+
+      toast(t('account.caldav_auths.form.success_message'), {autoClose: 2000, type: 'success'})
     });
   } catch (err) {
     console.error("Submit failed:", err);

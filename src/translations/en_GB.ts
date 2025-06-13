@@ -1,4 +1,10 @@
 export default {
+    "confirm_modal": {
+        "buttons": {
+            "cancel": "Cancel",
+            "confirm": "Confirm",
+        }
+    },
     "start": {
         "headline": "Welcome to OpenCal",
         "message": "Please use a user's personal link to book appointments."
@@ -78,7 +84,13 @@ export default {
                     "base_uri": "CalDAV Calendar URL",
                     "username": "Username",
                     "password": "Password",
-                }
+                },
+                "success_message": "The item has been saved.",
+            },
+            "delete": {
+                "confirm_headline": "Delete CalDAV Calendar auth?",
+                "confirm_message": "Are you sure you want to delete this entry? All synchronized data will be removed.",
+                "success_message": "The item has been deleted."
             }
         }
     },

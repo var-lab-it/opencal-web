@@ -46,7 +46,10 @@
       v-for="auth in auths"
       :key="auth.id"
     >
-      <CalDavAuthItem :auth="auth" />
+      <CalDavAuthItem
+        :auth="auth"
+        @item-deleted="loadData(false)"
+      />
     </div>
   </div>
 </template>
@@ -86,11 +89,4 @@ function loadData(showLoader: boolean = false) {
     console.error("Loading CalDAVAuths failed:", error);
   }
 }
-
-function formSubmitted() {
-  loadData(true);
-
-  alert(0);
-}
-
 </script>
