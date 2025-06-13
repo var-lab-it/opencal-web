@@ -1,4 +1,24 @@
 <template>
+  <div class="float-end">
+    <router-link
+      to="/dashboard/account"
+      class="btn btn-outline-secondary me-2"
+    >
+      <font-awesome-icon icon="angle-left" />
+      {{ $t('account.caldav_auths.buttons.back') }}
+    </router-link>
+    <button
+      class="btn btn-outline-success"
+      @click="createModalRef?.openModal()"
+    >
+      <font-awesome-icon icon="plus-circle" />
+      {{ $t('account.caldav_auths.buttons.add') }}
+    </button>
+    <CalDavAuthModal
+      ref="createModalRef"
+      @refreshed="loadData(true)"
+    />
+  </div>
   <h2 class="mb-3">
     <router-link
       to="/dashboard/account"
@@ -26,7 +46,7 @@
       v-for="auth in auths"
       :key="auth.id"
     >
-      <CalDavAuth :auth="auth" />
+      <CalDavAuthItem :auth="auth" />
     </div>
   </div>
 </template>
@@ -34,13 +54,14 @@
 <script setup lang="ts">
 import {onMounted, ref} from "vue";
 import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
-import {CalDavAuths} from "../../types/CalDavAuth";
-import CalDavAuth from './CalDavAuth.vue'
-import {getCalDavAuths} from "../../services/caldav";
-import Appointment from "./Appointment.vue";
+import {CalDavAuths} from "../../../types/CalDavAuth";
+import {getCalDavAuths} from "../../../services/caldav";
+import CalDavAuthModal from "./CalDavAuthModal.vue";
+import CalDavAuthItem from "./CalDavAuthItem.vue";
 
-const loading = ref(true)
+const loading = ref(true);
 const auths = ref<CalDavAuths>([]);
+const createModalRef = ref<InstanceType<typeof CalDavAuthModal> | null>(null)
 
 onMounted(async () => {
   loadData(true);
@@ -65,4 +86,11 @@ function loadData(showLoader: boolean = false) {
     console.error("Loading CalDAVAuths failed:", error);
   }
 }
+
+function formSubmitted() {
+  loadData(true);
+
+  alert(0);
+}
+
 </script>

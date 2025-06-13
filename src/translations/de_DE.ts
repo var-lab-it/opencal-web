@@ -58,6 +58,28 @@ export default {
                 "cancel": "Abbrechen",
                 "save": "Speichern"
             }
+        },
+        "caldav_accounts": "CalDAV Accounts",
+        "caldav_auths": {
+            "headline": "CalDAV Accounts",
+            "buttons": {
+                "edit": "Bearbeiten",
+                "add": "Hinzufügen",
+                "back": "Zurück",
+            },
+            "create_modal": {
+                "headline": "CalDAV-Kalender hinzufügen",
+            },
+            "form": {
+                "buttons": {
+                    "save": "Speichern"
+                },
+                "fields": {
+                    "base_uri": "URL zum CalDAV-Kalender",
+                    "username": "Username",
+                    "password": "Passwort",
+                }
+            }
         }
     },
     "change": "ändern",

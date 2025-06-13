@@ -63,8 +63,23 @@ export default {
         "caldav_auths": {
             "headline": "CalDAV Accounts",
             "buttons": {
-                "edit": "edit",
+                "edit": "Edit",
+                "add": "Add item",
+                "back": "Back",
             },
+            "create_modal": {
+                "headline": "Add CalDAV",
+            },
+            "form": {
+                "buttons": {
+                    "save": "Save"
+                },
+                "fields": {
+                    "base_uri": "CalDAV Calendar URL",
+                    "username": "Username",
+                    "password": "Password",
+                }
+            }
         }
     },
     "change": "change",

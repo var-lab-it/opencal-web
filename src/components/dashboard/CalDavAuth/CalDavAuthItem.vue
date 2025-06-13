@@ -29,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-import {CalDavAuth} from "../../types/CalDavAuth";
+import {CalDavAuth} from "../../../types/CalDavAuth";
 import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 
 defineProps({
