@@ -1,31 +1,17 @@
 # Stage 1: Development
-FROM node:24-slim as development
-
-WORKDIR /usr/src/app
-
+FROM node:24-slim AS development
+WORKDIR /app
 COPY package*.json ./
 RUN npm install
-
 COPY . .
-
-EXPOSE 8080
-
-CMD ["npm", "run", "serve"]
+RUN npm run build
+EXPOSE 5173
+CMD ["npm", "run", "dev", "--", "--host"]
 
 # Stage 2: Production
-FROM node:24-slim as production
-
-WORKDIR /usr/src/app
-
-COPY package*.json ./
-RUN npm install
-
-COPY --from=development /usr/src/app .
-
-RUN npm run build
-
-RUN npm install -g http-server
-
-EXPOSE 80
-
-CMD ["http-server", "dist"]
+FROM nginx:stable-alpine AS production
+VOLUME /var/log/nginx
+COPY ./docker/nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=development /app/dist /usr/share/nginx/html
+EXPOSE 8080
+CMD ["nginx", "-g", "daemon off;"]
