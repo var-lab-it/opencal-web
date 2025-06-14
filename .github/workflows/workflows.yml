@@ -92,4 +92,4 @@ jobs:
           context: .
           target: production
           push: true
-          tags: ghcr.io/var-lab-it/opencal-web:latest-unstable
+          tags: ghcr.io/var-lab-it/opencal-web:dev-latest
