@@ -37,7 +37,8 @@ export default {
             "dashboard": "Übersicht",
             "appointments": "Termine",
             "logout": "Abmelden",
-            "account": "Konto"
+            "account": "Konto",
+            "event_types": "Erreignistypen",
         }
     },
     "account": {
@@ -91,6 +92,25 @@ export default {
                 "confirm_headline": "CalDAV-Authentifizierung löschen??",
                 "confirm_message": "Sind Sie sicher, dass Sie diesen Eintrag löschen möchten? Alle synchronisierten Daten werden entfernt.",
                 "success_message": "Der Datensatz wurde gelöscht."
+            }
+        },
+        "event_types": {
+            "headline": "Ereignistypen",
+            "delete": {
+                "messages": {
+                    "success": "Der Ereignistyp wurde erfolgreich gespeichert."
+                }
+            },
+            "form": {
+                "fields": {
+                    "name": "Name",
+                    "slug": "Slug",
+                    "description": "Beschreibung",
+                    "duration": "Dauer",
+                }
+            },
+            "modal": {
+                "headline": "Ereignistyp",
             }
         }
     },
