@@ -37,7 +37,8 @@ export default {
             "dashboard": "Dashboard",
             "appointments": "Appointments",
             "logout": "Log Out",
-            "account": "Account"
+            "account": "Account",
+            "event_types": "Event types",
         }
     },
     "account": {
@@ -91,6 +92,25 @@ export default {
                 "confirm_headline": "Delete CalDAV Calendar auth?",
                 "confirm_message": "Are you sure you want to delete this entry? All synchronized data will be removed.",
                 "success_message": "The item has been deleted."
+            }
+        },
+        "event_types": {
+            "headline": "Event Types",
+            "delete": {
+                "messages": {
+                    "success": "The event type has been deleted successfully."
+                }
+            },
+            "form": {
+                "fields": {
+                    "name": "Name",
+                    "slug": "Slug",
+                    "description": "Description",
+                    "duration": "Duration",
+                }
+            },
+            "modal": {
+                "headline": "Event type",
             }
         }
     },

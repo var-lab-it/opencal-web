@@ -84,6 +84,7 @@ async function handleLogin() {
       const token = response.data.token;
 
       sessionStorage.setItem('jwtToken', token);
+      sessionStorage.setItem('userEmail', email.value);
       redirectAfterLogin();
     } else {
       error.value = 'No valid token.';

@@ -9,6 +9,7 @@ import PasswordRequest from "../components/PasswordRequest.vue";
 import PasswordResest from "../components/PasswordResest.vue";
 import Appointments from "../components/dashboard/Appointments.vue";
 import CalDavAuthsList from "../components/dashboard/CalDavAuth/CalDavAuthsList.vue";
+import EventTypeList from "../components/dashboard/EventType/EventTypeList.vue";
 
 const routes = [
     {
@@ -59,6 +60,12 @@ const routes = [
         component: CalDavAuthsList,
         meta: {requiresAuth: true}
     },
+    {
+        name: 'event_types',
+        path: '/dashboard/event_types',
+        component: EventTypeList,
+        meta: {requiresAuth: true}
+    }
 ];
 
 const router = createRouter({

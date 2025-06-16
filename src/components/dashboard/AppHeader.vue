@@ -33,6 +33,15 @@
               {{ $t('header.nav.dashboard') }}
             </router-link>
           </li>
+          <li class="nav-item">
+            <router-link
+              to="/dashboard/event_types"
+              class="nav-link"
+              active-class="active"
+            >
+              {{ $t('header.nav.event_types') }}
+            </router-link>
+          </li>
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
