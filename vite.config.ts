@@ -22,5 +22,15 @@ export default defineConfig({
         rollupOptions: {
             input: './index.html'
         }
+    },
+
+    server: {
+        proxy: {
+            '/api': {
+                target: 'http://nginx_backend:80',
+                changeOrigin: true,
+                rewrite: (path) => path.replace(/^\/api/, ''),
+            }
+        }
     }
 })
